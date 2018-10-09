@@ -31,6 +31,14 @@ io.on("connection", (socket) => {
           console.log("New Email : ", newEmail);
       });
 
+      socket.on('createMessage', (message) => {
+          console.log('createMessage', message);
+      });
+
+      socket.emit("newMessage", (message) => {
+          console.log("New Message : ", message);
+      });
+
       socket.on("disconnect", () => {
           console.log("User is disconnected");
       });
