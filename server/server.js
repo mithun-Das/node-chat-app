@@ -35,8 +35,9 @@ io.on("connection", (socket) => {
           console.log('createMessage', message);
       });
 
-      socket.emit("newMessage", (message) => {
-          console.log("New Message : ", message);
+      socket.emit("newMessage",  {
+          from : "server",
+          text : "Hi client"
       });
 
       socket.on("disconnect", () => {
